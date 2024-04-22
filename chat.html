@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Buddies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F7CE4D; /* Set background color */
+            color: black; /* Set font color */
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around; /* Align sections evenly */
+            height: 100vh; /* Fill the whole screen */
+            padding: 20px;
+        }
+
+        .column {
+            flex-basis: 30%; /* Each column takes 30% of container width */
+        }
+
+        h1 {
+            color: #000; /* Set heading color to black */
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #F7CE4D; /* Set button background color */
+            border: none;
+            border-radius: 3px;
+            color: black; /* Set button font color */
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: white; /* Change button color on hover */
+        }
+
+        .section {
+            overflow-y: auto; /* Enable scrolling if content exceeds container height */
+            height: 70vh; /* Set fixed height for each section */
+            margin-bottom: 20px; /* Add space between sections */
+        }
+
+        .active {
+            display: block; /* Show when active */
+        }
+
+        .inactive {
+            display: none; /* Hide when inactive */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="column">
+            <div class="section active" id="buddiesSection">
+                <h1>Buddies</h1>
+                <ul id="buddiesList">
+                    <li><button onclick="openChat('Buddy 1')">Buddy 1</button></li>
+                    <li><button onclick="openChat('Buddy 2')">Buddy 2</button></li>
+                    <li><button onclick="openChat('Buddy 3')">Buddy 3</button></li>
+                    <!-- Add more buddies as needed -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="section inactive" id="sentRequestsSection">
+                <h1>Sent Requests</h1>
+                <ul id="sentRequestsList">
+                    <li><button onclick="WithdrawRequest('Intending Buddy 1')">Buddy 1</button></li>
+                    <li><button onclick="WithdrawRequest('Intending Buddy 2')">Buddy 2</button></li>
+                    <li><button onclick="WithdrawRequest('Intending Buddy 3')">Buddy 3</button></li>
+                    <!-- Display sent requests here -->
+                </ul>
+            </div>
+            <div class="section inactive" id="receivedRequestsSection">
+                <h1>Received Requests</h1>
+                <ul id="receivedRequestsList">
+                    <li><button onclick="AcceptRequest('Intending Buddy 1')">Buddy 1</button></li>
+                    <li><button onclick="AcceptRequest('Intending Buddy 2')">Buddy 2</button></li>
+                    <li><button onclick="AcceptRequest('Intending Buddy 3')">Buddy 3</button></li>
+                    <!-- Display received requests here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openChat(buddy) {
+            // Replace this with code to open chat window with the selected buddy
+            alert('Opening chat with ' + buddy);
+        }
+
+        function WithdrawRequest(buddy) {
+            // Replace this with code to withdraw the request for the selected buddy
+            alert('Withdrawing request for ' + buddy);
+        }
+
+        function AcceptRequest(buddy) {
+            // Replace this with code to accept the request from the selected buddy
+            alert('Accepting request from ' + buddy);
+        }
+
+        function toggleSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach((s) => {
+                s.classList.remove('active');
+                s.classList.add('inactive');
+            });
+
+            // Show the selected section
+            document.getElementById(section + 'Section').classList.add('active');
+        }
+    </script>
+</body>
+</html>

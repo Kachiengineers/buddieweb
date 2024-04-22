@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddie - Making Friends, One Match at a Time</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F7CE4D; /* Set background color */
+            color: black; /* Set font color */
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: white; /* Set container background color */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"],
+        .start-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #F7CE4D; /* Set button background color */
+            border: none;
+            border-radius: 3px;
+            color: black; /* Set button font color */
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        .start-button:hover {
+            background-color: white; /* Change button color on hover */
+        }
+
+        .buddie-title {
+            font-family: 'Bungee', sans-serif;
+            font-size: 75px; /* Increase font size */
+            margin-top: 50px;
+        }
+
+        .logo {
+            display: block;
+            margin: auto;
+            margin-top: 50px;
+            width: 400px; /* Increase logo size */
+            height: auto;
+        }
+
+        .tagline {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 24px; /* Increase font size */
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <section id="cover_page">
+        <h1 class="buddie-title">BUDDIE</h1>
+        <img class="logo" src="C:\Users\USER\Desktop\Buddie App Frames1.png" alt="Buddie Logo">
+        <p class="tagline">Making friends, one match at a time</p>
+        <button class="start-button" onclick="showSignUp()">Sign Up</button>
+        <br><br>
+        <button class="start-button" onclick="showLogin()">Log In</button>
+    </section>
+
+    <!-- Sign Up Page -->
+    <section id="sign_up_page" style="display: none;">
+        <div class="container">
+            <h2>Sign Up</h2>
+            <form action="profile_creation_page.html" method="post" onsubmit="return validatePasswords()">
+                <input type="email" name="email" placeholder="Email" required><br>
+                <input type="password" id="password" name="password" placeholder="Password (at least 6 characters)" required><br>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required><br>
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+    </section>
+
+    <!-- Profile Creation Page -->
+    <section id="profile_creation_page" style="display: none;">
+        <div class="container">
+            <h2>Profile Creation</h2>
+            <form action="#" method="post" enctype="multipart/form-data">
+                <!-- Profile creation form fields -->
+            </form>
+        </div>
+    </section>
+
+    <!-- Login Page -->
+    <section id="login_page" style="display: none;">
+        <div class="container">
+            <h2>Log In</h2>
+            <form action="#" method="post">
+                <input type="email" name="email" placeholder="Email" required><br>
+                <input type="password" name="password" placeholder="Password" required><br>
+                <input type="submit" value="Log In">
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function showSignUp() {
+            document.getElementById("cover_page").style.display = "none";
+            document.getElementById("sign_up_page").style.display = "block";
+        }
+
+        function showLogin() {
+            document.getElementById("cover_page").style.display = "none";
+            document.getElementById("login_page").style.display = "block";
+        }
+
+        function validatePasswords() {
+            var password = document.getElementById("password").value;
+            var confirm_password = document.getElementById("confirm_password").value;
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+            if (password !== confirm_password) {
+                alert("Passwords do not match. Please re-enter your password.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

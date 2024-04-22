@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Creation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F7CE4D; /* Set background color */
+            color: black; /* Set font color */
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: white; /* Set container background color */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #F7CE4D; /* Set button background color */
+            border: none;
+            border-radius: 3px;
+            color: black; /* Set button font color */
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: white; /* Change button color on hover */
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        #user-photo {
+            background-size: cover;
+            background-position: center;
+            width: 100px;
+            height: 100px;
+            margin: 10px auto;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Profile Creation</h2>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="photo">Profile Photo:</label><br>
+                <input type="file" id="photo" name="photo" accept="image/*" onchange="displayPhoto(this)">
+                <div id="user-photo"></div>
+            </div>
+            <div>
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="dob">Date of Birth (DD-MM):</label><br>
+                <input type="date" id="dob" name="dob" max="2006-04" min="1900-01" required>
+            </div>
+            <div>
+                <label for="interests">Interests (Select 4):</label><br>
+                <select id="interests" name="interests[]" multiple required>
+                    <option value="Sports">Sports</option>
+                    <option value="Music">Music</option>
+                    <option value="Nollywood">Nollywood (Nigerian film industry)</option>
+                    <option value="Fashion">Fashion</option>
+                    <option value="Food">Food (Nigerian cuisine)</option>
+                    <option value="Entrepreneurship">Entrepreneurship</option>
+                    <option value="Education">Education</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Travel">Travel</option>
+                </select>
+            </div>
+            <div>
+                <label for="location">Location:</label><br>
+                <select id="location" name="location" required>
+                    <option value="" disabled selected>Select Location</option>
+                    <option value="Agege">Agege</option>
+                    <option value="Ajeromi-Ifelodun">Ajeromi-Ifelodun</option>
+                    <option value="Alimosho">Alimosho</option>
+                    <option value="Amuwo-Odofin">Amuwo-Odofin</option>
+                    <option value="Apapa">Apapa</option>
+                    <option value="Badagry">Badagry</option>
+                    <option value="Epe">Epe</option>
+                    <option value="Eti-Osa">Eti-Osa</option>
+                    <option value="Ibeju-Lekki">Ibeju-Lekki</option>
+                    <option value="Ifako-Ijaiye">Ifako-Ijaiye</option>
+                    <option value="Ikeja">Ikeja</option>
+                    <option value="Ikorodu">Ikorodu</option>
+                    <option value="Kosofe">Kosofe</option>
+                    <option value="Lagos Island">Lagos Island</option>
+                    <option value="Lagos Mainland">Lagos Mainland</option>
+                    <option value="Mushin">Mushin</option>
+                    <option value="Ojo">Ojo</option>
+                    <option value="Oshodi-Isolo">Oshodi-Isolo</option>
+                    <option value="Shomolu">Shomolu</option>
+                    <option value="Surulere">Surulere</option>
+                </select>
+            </div>
+            <div>
+                <label for="religion">Religion:</label><br>
+                <select id="religion" name="religion" required>
+                    <option value="" disabled selected>Select Religion</option>
+                    <option value="Christianity">Christianity</option>
+                    <option value="Islam">Islam</option>
+                    <option value="Agnostism">Agnostism</option>
+                    <option value="Atheism">Atheism</option>
+                    <option value="Traditional Worship">Traditional Worship</option>
+                </select>
+            </div>
+            <div>
+                <label for="gender">Gender:</label><br>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Create Profile">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function displayPhoto(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    document.getElementById('user-photo').style.backgroundImage = 'url(' + e.target.result + ')';
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>
